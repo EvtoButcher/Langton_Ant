@@ -44,7 +44,7 @@ namespace Langton__s_Ant
 
         public Vector NewPos()
         {
-            while (i <= queue.Count)
+            while (i < queue.Count)
             {
                 if (!Fild[AntPos.X, AntPos.Y])
                 {
@@ -73,6 +73,7 @@ namespace Langton__s_Ant
         public void NextStep()
         {
             AntPos = AntPos + Increment;
+            
             if (AntPos.X < 0)
             {
                 AntPos.X = (cols - 1);
@@ -89,6 +90,7 @@ namespace Langton__s_Ant
             {
                 AntPos.Y = 0;
             }
+
             Fild[OldAntPos.X, OldAntPos.Y] = !Fild[OldAntPos.X, OldAntPos.Y];
             OldAntPos = AntPos;
         }
