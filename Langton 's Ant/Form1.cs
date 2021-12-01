@@ -43,7 +43,7 @@ namespace Langton__s_Ant
         private void GameStop()
         {
             if (!timer1.Enabled) { return; }
-
+             
             timer1.Stop();
 
             nudResolution.Enabled = true;

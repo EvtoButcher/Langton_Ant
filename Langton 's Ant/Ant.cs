@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Langton__s_Ant
 {
@@ -12,7 +13,7 @@ namespace Langton__s_Ant
 
         private static bool[,] Fild;
 
-        private Vector[] queue = new Vector[4];
+        private List<Vector> queue = new List<Vector>(4);
         private Vector Right = new Vector(1, 0);
         private Vector Up = new Vector(0, 1);
         private Vector Left = new Vector(-1, 0);
@@ -33,17 +34,17 @@ namespace Langton__s_Ant
 
             Fild = new bool [cols,rows];
 
-            queue[0] = Right;
-            queue[1] = Up;
-            queue[2] = Left;
-            queue[3] = Down;
+            queue.Add(Right);
+            queue.Add(Up);
+            queue.Add(Left);
+            queue.Add(Down);
 
             i = random.Next(1, 4) - 1;        
         }
 
         public Vector NewPos()
         {
-            while (i <= 3)
+            while (i <= queue.Count)
             {
                 if (!Fild[AntPos.X, AntPos.Y])
                 {
