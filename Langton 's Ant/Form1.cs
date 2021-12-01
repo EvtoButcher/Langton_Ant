@@ -2,16 +2,25 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Langton__s_Ant
 {
     public partial class Form1 : Form
     {
-        private Graphics graphics;
-        private List<Ant> Ants;
+        private static Random random = new Random();
+
         private int Resolution;
         private int Density;
-       
+        private bool StartLocation;
+
+        //private Color color;
+        //private List<Brush> Colors;
+
+        private List<Ant> Ants;
+
+        private Graphics graphics;
+
         public Form1()
         { 
             InitializeComponent();
@@ -19,25 +28,40 @@ namespace Langton__s_Ant
         
         public void GameStart()
         {
+            //random = new Random();
+
             if (timer1.Enabled) { return; }
 
             nudResolution.Enabled = false;
             nudDensity.Enabled = false;
+            comboBox1.Enabled = false;
 
             Resolution = (int)nudResolution.Value;
+            if(Resolution == 1) 
+            { 
+                Resolution++; 
+            }
             Density = (int)nudDensity.Value;
+            StartLocation = Convert.ToBoolean(comboBox1.SelectedIndex);
+
+            //color = new Color();
+            //Colors = new List<Brush>();
 
             Ants = new List<Ant>();
 
             for (int i = 0; i < Density; i++)
             {
-                Ants.Add(new Ant(pictureBox1.Height / Resolution, pictureBox1.Width / Resolution));
+                Ants.Add(new Ant(pictureBox1.Height / Resolution, pictureBox1.Width / Resolution, StartLocation));
+
+                //color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+                //Colors.Add(new SolidBrush(color));
             }
 
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(pictureBox1.Image);
             
             timer1.Start();
+            //thread.Start();
         }
 
         private void GameStop()
@@ -48,11 +72,11 @@ namespace Langton__s_Ant
 
             nudResolution.Enabled = true;
             nudDensity.Enabled = true;
+            comboBox1.Enabled = true;
         }
  
         private void GameDraw()
         {
-
             graphics.Clear(Color.Black);
 
             var Fild = Ant.GetFildCopy();
@@ -66,18 +90,19 @@ namespace Langton__s_Ant
                         graphics.FillRectangle(Brushes.Goldenrod, x * Resolution, y * Resolution, Resolution - 1, Resolution - 1);
                     }
                 }
-                /*
-                for (int i = 0; i < Ants.Count; i++)
-                {
-                    graphics.FillRectangle(Brushes.White, Ants[i].GetAntPos().X * Resolution, Ants[i].GetAntPos().Y * Resolution, Resolution - 1, Resolution - 1);
-                }
-                */
             }
             pictureBox1.Refresh();
+        }
+
+        private void AntDraw(int AntInd)
+        {
+            graphics.FillRectangle(Brushes.White, Ants[AntInd].GetAntPos().X * Resolution, Ants[AntInd].GetAntPos().Y * Resolution, Resolution - 1, Resolution - 1);
         }
         
         private void bStart_Click(object sender, EventArgs e)
         {
+            //thread = new Thread();
+
             GameStart();            
         }
 
@@ -93,8 +118,8 @@ namespace Langton__s_Ant
                 Ants[i].NewPos();
                 Ants[i].NextStep();
             }
-            GameDraw();            
+            GameDraw();
         }
-
+     
     }
 }

@@ -33,6 +33,8 @@ namespace Langton__s_Ant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.bStop = new System.Windows.Forms.Button();
             this.bStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,6 +67,8 @@ namespace Langton__s_Ant
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.bStop);
             this.splitContainer1.Panel1.Controls.Add(this.bStart);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -79,9 +83,31 @@ namespace Langton__s_Ant
             this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Random",
+            "From the center"});
+            this.comboBox1.Location = new System.Drawing.Point(36, 201);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 24);
+            this.comboBox1.TabIndex = 7;
+            this.comboBox1.Text = "Random";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(32, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Location of ants";
+            // 
             // bStop
             // 
-            this.bStop.Location = new System.Drawing.Point(36, 259);
+            this.bStop.Location = new System.Drawing.Point(36, 288);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(117, 42);
             this.bStop.TabIndex = 5;
@@ -91,7 +117,7 @@ namespace Langton__s_Ant
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(36, 211);
+            this.bStart.Location = new System.Drawing.Point(36, 240);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(117, 42);
             this.bStart.TabIndex = 4;
@@ -103,7 +129,7 @@ namespace Langton__s_Ant
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(36, 149);
+            this.label2.Location = new System.Drawing.Point(36, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 3;
@@ -121,9 +147,14 @@ namespace Langton__s_Ant
             // 
             // nudDensity
             // 
-            this.nudDensity.Location = new System.Drawing.Point(36, 169);
+            this.nudDensity.Location = new System.Drawing.Point(36, 139);
             this.nudDensity.Maximum = new decimal(new int[] {
-            2000,
+            5000,
+            0,
+            0,
+            0});
+            this.nudDensity.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
@@ -139,11 +170,16 @@ namespace Langton__s_Ant
             // nudResolution
             // 
             this.nudResolution.Location = new System.Drawing.Point(36, 81);
+            this.nudResolution.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.nudResolution.Name = "nudResolution";
             this.nudResolution.Size = new System.Drawing.Size(120, 22);
             this.nudResolution.TabIndex = 0;
             this.nudResolution.Value = new decimal(new int[] {
-            3,
+            2,
             0,
             0,
             0});
@@ -190,6 +226,8 @@ namespace Langton__s_Ant
         private System.Windows.Forms.NumericUpDown nudDensity;
         private System.Windows.Forms.NumericUpDown nudResolution;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -22,12 +22,20 @@ namespace Langton__s_Ant
         private Vector Increment;
         private int i; //first increment from -1 to 3     
 
-        private Random random = new Random();
+        private static Random random = new Random();
 
-        public Ant(int rows, int cols)
+        public Ant(int rows, int cols, bool StartPos)
         {
-            AntPos = new Vector(cols / 2, rows / 2);
-            OldAntPos = new Vector(cols / 2, rows / 2);
+            if (StartPos)
+            {
+                AntPos = new Vector(cols / 2, rows / 2);
+                OldAntPos = AntPos;
+            }
+            if (!StartPos)
+            {
+                AntPos = new Vector(random.Next(cols - 1), random.Next(rows - 1));
+                OldAntPos = AntPos;
+            }
 
             Ant.rows = rows;
             Ant.cols = cols;
@@ -126,6 +134,12 @@ namespace Langton__s_Ant
         {
             var AntPos = this.AntPos;
             return AntPos;
+        }
+
+        public Vector GetOldAntPos()
+        {
+            var OldAntPos = this.OldAntPos;
+            return OldAntPos;
         }
     }
 }
