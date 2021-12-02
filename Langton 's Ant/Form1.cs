@@ -15,7 +15,7 @@ namespace Langton__s_Ant
         private bool StartLocation;
 
         //private Color color;
-        //private List<Brush> Colors;
+        //private List<Brush> Colors; 
 
         private List<Ant> Ants;
 

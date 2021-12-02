@@ -16,7 +16,7 @@ namespace Langton__s_Ant
         {
             X = V1.X;
             Y = V1.Y;
-        }
+        } 
 
         public static Vector operator +(Vector V1, Vector V2)
         {

@@ -52,7 +52,7 @@ namespace Langton__s_Ant
             this.SuspendLayout();
             // 
             // timer1
-            // 
+            //  
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
