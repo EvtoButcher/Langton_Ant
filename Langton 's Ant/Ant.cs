@@ -58,7 +58,7 @@ namespace Langton__s_Ant
                 {
                     i++;
                     if (i > 3) { i = 0; }
-
+                     
                     Increment = new Vector(queue[i].X, queue[i].Y);
 
                     return Increment;
