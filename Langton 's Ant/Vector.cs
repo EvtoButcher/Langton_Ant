@@ -9,7 +9,7 @@ namespace Langton__s_Ant
         public Vector(int x, int y)
         {
             X = x;
-            Y = y;
+            Y = y; 
         }
 
         public Vector(Vector V1)

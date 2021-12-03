@@ -50,21 +50,6 @@ namespace Langton__s_Ant
             i = random.Next(1, 4) - 1;        
         }
 
-        public Ant(int x, int y)//Add new ant with mouse
-        {
-            AntPos = new Vector(x, y);
-            OldAntPos = AntPos;
-
-            Fild = new bool[cols, rows];
-
-            queue.Add(Right);
-            queue.Add(Up);
-            queue.Add(Left);
-            queue.Add(Down);
-
-            i = random.Next(1, 4) - 1;
-        }
-
         public Vector NewPos()
         {
             while (i < queue.Count)

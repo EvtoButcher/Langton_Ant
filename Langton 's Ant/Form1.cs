@@ -10,13 +10,16 @@ namespace Langton__s_Ant
     {
         private static Random random = new Random();
 
+        private Thread thread;
+        private bool flag = false;
+
         private int Resolution;
         private int Density;
         private bool StartLocation;
 
         private Color color;
-        private List<Brush> Colors; 
 
+        private List<Brush> Colors; 
         private List<Ant> Ants;
 
         private Graphics graphics;
@@ -28,24 +31,19 @@ namespace Langton__s_Ant
         
         public void GameStart()
         {
-
-            if (timer1.Enabled) { return; }
+            if (flag) { return; }
 
             nudResolution.Enabled = false;
             nudDensity.Enabled = false;
             comboBox1.Enabled = false;
 
             Resolution = (int)nudResolution.Value;
-            if(Resolution == 1) 
-            { 
-                Resolution++; 
-            }
             Density = (int)nudDensity.Value;
             StartLocation = Convert.ToBoolean(comboBox1.SelectedIndex);
 
             color = new Color();
-            Colors = new List<Brush>();
 
+            Colors = new List<Brush>();
             Ants = new List<Ant>();
 
             for (int i = 0; i < Density; i++)
@@ -58,18 +56,17 @@ namespace Langton__s_Ant
 
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(pictureBox1.Image);
-
             graphics.Clear(Color.Black);
 
-            timer1.Start();
-            //Fast();
+            flag = true;
+            thread.Start();
         }
 
         private void GameStop()
         {
-            if (!timer1.Enabled) { return; }
+            if (!flag) { return; }
 
-            timer1.Stop();
+            flag = false;
 
             nudResolution.Enabled = true;
             nudDensity.Enabled = true;
@@ -78,7 +75,6 @@ namespace Langton__s_Ant
  
         private void GameDraw()
         {
-
             var Fild = Ant.GetFildCopy();
 
             for (int i = 0; i < Ants.Count; i++)
@@ -97,6 +93,14 @@ namespace Langton__s_Ant
         
         private void bStart_Click(object sender, EventArgs e)
         {
+            CheckForIllegalCrossThreadCalls = false;
+
+            thread = new Thread(
+                delegate() 
+                {
+                    Fast();
+                });
+
             GameStart();            
         }
 
@@ -105,19 +109,9 @@ namespace Langton__s_Ant
             GameStop();
         }
         
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Ants.Count; i++)
-            {
-                Ants[i].NewPos();
-                Ants[i].NextStep();
-            }
-            GameDraw();
-        }
-        /*
         private void Fast()
         {
-            while (true)
+            while (flag)
             {
                 for (int i = 0; i < Ants.Count; i++)
                 {
@@ -127,19 +121,5 @@ namespace Langton__s_Ant
                 GameDraw();
             }
         }
-        
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!timer1.Enabled) { return; }
-
-            if(e.Button == MouseButtons.Left)
-            {
-                var x = e.Location.X / Resolution;
-                var y = e.Location.Y / Resolution;
-
-                Ants.Add(new Ant(x, y));
-            }
-        }
-        */
     }
 }

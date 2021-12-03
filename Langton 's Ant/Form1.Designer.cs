@@ -29,11 +29,8 @@ namespace Langton__s_Ant
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -54,11 +51,6 @@ namespace Langton__s_Ant
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -70,7 +62,6 @@ namespace Langton__s_Ant
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
@@ -88,16 +79,6 @@ namespace Langton__s_Ant
             this.splitContainer1.Size = new System.Drawing.Size(1359, 751);
             this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(59, 359);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Draw";
             // 
             // groupBox1
             // 
@@ -200,6 +181,11 @@ namespace Langton__s_Ant
             // nudResolution
             // 
             this.nudResolution.Location = new System.Drawing.Point(36, 72);
+            this.nudResolution.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nudResolution.Minimum = new decimal(new int[] {
             2,
             0,
@@ -246,8 +232,6 @@ namespace Langton__s_Ant
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button bStop;
         private System.Windows.Forms.Button bStart;
@@ -260,7 +244,6 @@ namespace Langton__s_Ant
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }
 
