@@ -107,7 +107,7 @@ namespace Langton__s_Ant
         public static bool[,] GetFildCopy()
         {
             var CopyFild = new bool[cols, rows];
-
+            
             for (int x = 0; x < cols; x++)
             {
                 for(int y = 0; y < rows; y++)

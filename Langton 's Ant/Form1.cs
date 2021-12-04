@@ -100,6 +100,12 @@ namespace Langton__s_Ant
                 {
                     Fast();
                 });
+             /*
+            thread = new Thread(() =>
+            {
+                Invoke((Action)(() => { Fast(); }));
+            });
+            */
 
             GameStart();            
         }
