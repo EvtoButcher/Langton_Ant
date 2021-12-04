@@ -98,14 +98,8 @@ namespace Langton__s_Ant
             thread = new Thread(
                 delegate() 
                 {
-                    Fast();
+                    AtntStep();
                 });
-             /*
-            thread = new Thread(() =>
-            {
-                Invoke((Action)(() => { Fast(); }));
-            });
-            */
 
             GameStart();            
         }
@@ -115,7 +109,7 @@ namespace Langton__s_Ant
             GameStop();
         }
         
-        private void Fast()
+        private void AtntStep()
         {
             while (flag)
             {
