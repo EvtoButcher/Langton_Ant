@@ -81,7 +81,7 @@ namespace Langton__s_Ant
         public void NextStep()
         {
             AntPos = AntPos + Increment;
-            
+
             if (AntPos.X < 0)
             {
                 AntPos.X = (cols - 1);

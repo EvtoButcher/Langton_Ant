@@ -108,8 +108,13 @@ namespace Langton__s_Ant
         {
             GameStop();
         }
-        
-        private void AtntStep()
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            thread.Abort();
+        }
+
+        public void AtntStep()
         {
             while (flag)
             {

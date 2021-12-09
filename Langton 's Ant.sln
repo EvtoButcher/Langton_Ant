@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Langton 's Ant", "Langton 's Ant\Langton 's Ant.csproj", "{08296775-58E7-4BA8-A665-A73F4F2ED3F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkAnt", "BenchmarkAnt\BenchmarkAnt.csproj", "{6F4E5E16-E651-4206-8505-E4AAEECCC0DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{08296775-58E7-4BA8-A665-A73F4F2ED3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08296775-58E7-4BA8-A665-A73F4F2ED3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08296775-58E7-4BA8-A665-A73F4F2ED3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4E5E16-E651-4206-8505-E4AAEECCC0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4E5E16-E651-4206-8505-E4AAEECCC0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4E5E16-E651-4206-8505-E4AAEECCC0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4E5E16-E651-4206-8505-E4AAEECCC0DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
