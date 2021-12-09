@@ -108,8 +108,8 @@ namespace Langton__s_Ant
         {
             GameStop();
         }
-        
-        private void AtntStep()
+
+        public void AtntStep()
         {
             while (flag)
             {
