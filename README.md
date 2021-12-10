@@ -37,7 +37,8 @@
             }
         }
 ```
-Рассмотрим её подробнее. В цикле for для каждого экземпляра муравья из списка применяются следущие методы.
+Рассмотрим её подробнее. В цикле `for` для каждого экземпляра муравья из списка применяются следущие методы:
+## NewPos()
   ```C#
   public Vector NewPos()
           {
@@ -67,7 +68,43 @@
               return Increment;
           }
   ```
+Метод вычисляет приращение для каждого муравья на следущий ход. Происходит это путём вращения списка queue, содержащего набор приращений, согласно которым муравей будет двигаться только по белым или только по чёрным клеткам.
+```C#
+        private List<Vector> queue = new List<Vector>(4);
+        private Vector Right = new Vector(1, 0);
+        private Vector Up = new Vector(0, 1);
+        private Vector Left = new Vector(-1, 0);
+        private Vector Down = new Vector(0, -1);
+```
+Таким образом, для вычисления приращения нам необходимо знать откудо пришел муравей, переменная `i` по сути задаёт первое приращение. Это нужно потому что в изначальный момент времени муравей приходит из ниоткуда.
 
+## NextStep()
+```C#
+public void NextStep()
+        {
+            AntPos = AntPos + Increment;
+
+            if (AntPos.X < 0)
+            {
+                AntPos.X = (cols - 1);
+            }
+            if (AntPos.Y < 0)
+            {
+                AntPos.Y = (rows - 1);
+            }
+            if (AntPos.X > (cols - 1))
+            {
+                AntPos.X = 0;
+            }
+            if (AntPos.Y > (rows - 1))
+            {
+                AntPos.Y = 0;
+            }
+
+            Fild[OldAntPos.X, OldAntPos.Y] = !Fild[OldAntPos.X, OldAntPos.Y];
+            OldAntPos = AntPos;
+        }
+```
 ![image](https://user-images.githubusercontent.com/52111046/144684250-f0e8dd55-85a4-4d45-853f-60546e30b9d6.png)
 ![image](https://user-images.githubusercontent.com/52111046/144709310-fa75aead-9074-42d1-b84b-e2eb8d280ccf.png)
 
