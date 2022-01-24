@@ -109,12 +109,12 @@ namespace Langton__s_Ant
             GameStop();
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             thread.Abort();
         }
 
-        public void AtntStep()
+        private void AtntStep()
         {
             while (flag)
             {
@@ -126,5 +126,6 @@ namespace Langton__s_Ant
                 GameDraw();
             }
         }
+
     }
 }
